@@ -6,43 +6,43 @@ import android.util.Log
 import kotlinx.android.synthetic.main.menu_activity.*
 
 class MenuActivity : BaseActivity() {
+    var character = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_activity)
 
-        step = savedInstanceState?.getInt("STEP") ?: step
-        Log.d("MenuActivityTag","onCreate Step: $step")
+        Log.d("MenuActivityTag", "onCreate")
 
-        initMenu()
+        character = initMenu()
 
         menu_button.setOnClickListener {
             val intent = Intent(this, CalculateActivity::class.java)
-            intent.putExtra("STEP", step)
+            intent.putExtra("CHARACTER", character)
+            Log.d("MenuActivityTag", "Character send: $character")
             startActivity(intent)
         }
     }
 
     override fun onRestart() {
         super.onRestart()
+        Log.d("MenuActivityTag", "onRestart")
         initMenu()
-        Log.d("MenuActivityTag","onRestart Step: $step")
     }
 
-    override fun onNewIntent(intent: Intent) {
-        super.onNewIntent(intent)
-        setIntent(intent)
-    }
+    private fun initMenu(): Int {
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putInt("STEP", step)
-    }
+        val db = MyDatabaseHelper(this, "Calculation.db", 1).writableDatabase
+        character = getCurrentCharacterNo(db)
+        Log.d("MenuActivityTag", "initMenu getCurrentCharacter: $character")
 
-    private fun initMenu() {
-        step = intent.getIntExtra("STEP", step)
-        Log.d("MenuActivityTag", "initMenu Step: $step")
+        if (character == -1) {
+            //TODO:初期化
+        }
 
-        menu_img.setImageResource(StepCharacter.getCharacter(step)?.get(1) as Int)
-        menu_text.text = (StepCharacter.getCharacter(step)?.get(0).toString())
+        menu_img.setImageResource(StepCharacter.getCharacter(character)?.get(1) as Int)
+        menu_text.text = (StepCharacter.getCharacter(character)?.get(0).toString()) + "の陣"
+
+        return character
     }
 }

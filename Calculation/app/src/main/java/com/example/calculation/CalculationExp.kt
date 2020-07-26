@@ -28,8 +28,8 @@ class CalculationExp {
         var exLayerResult = 0
 
         if (!isFirstLayer) {
-            exLayerExp = exLayer.get(1).toString()
-            exLayerResult = exLayer.get(2) as Int
+            exLayerExp = exLayer[1].toString()
+            exLayerResult = exLayer[2] as Int
         }
 
         var symbol: Int
@@ -46,15 +46,13 @@ class CalculationExp {
             (1..2).shuffled().first()
         }
 
-        if (!isFirstLayer && position == 1 && symbol > 2) {
-            val exSymbol: Int = exLayer.get(0) as Int
-            if (exSymbol <=2 ) {
+        if (!isFirstLayer) {
+            val exSymbol = exLayer[0] as Int
+            if (exSymbol <=2 && symbol >2) {
+                exLayerExp = "($exLayerExp)"
+            } else if (position == 2 && symbol%2 == 0 && exSymbol <= symbol) {
                 exLayerExp = "($exLayerExp)"
             }
-        }
-
-        if(!isFirstLayer && position == 2 && symbol%2 == 0) {
-            exLayerExp = "($exLayerExp)"
         }
 
         var expression = ""

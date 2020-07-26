@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="不正解だった質問の\n正解一覧"
+        android:textSize="30sp"
+        android:textColor="@color/textColor"
+        android:layout_margin="20dp"/>
+
+    <ScrollView
+        android:id="@+id/review_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="25dp">
+
+        <TextView
+            android:id="@+id/review_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textColor="@color/textColor"/>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/review_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="30sp"
+        android:background="@color/buttonColor"
+        android:textColor="@color/buttonTextColor"/>
+</LinearLayout>

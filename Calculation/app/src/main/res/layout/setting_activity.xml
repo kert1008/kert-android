@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="設定"
+        android:textSize="40sp"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="50dp"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="30dp">
+
+        <TableRow
+            android:layout_marginBottom="20dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="陣の質問数"
+                android:textSize="25sp"
+                android:textColor="@color/textColor"/>
+
+            <EditText
+                android:id="@+id/question_num"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="25sp"
+                android:hint="10以上の整数"
+                android:inputType="number"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="最初の味方数"
+                android:textSize="25sp"
+                android:textColor="@color/textColor" />
+
+            <EditText
+                android:id="@+id/base_chance_num"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="25sp"
+                android:hint="5以下の整数"
+                android:inputType="number"/>
+        </TableRow>
+        <TableRow
+            android:layout_marginBottom="20dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="回答時間 (分)"
+                android:textSize="25sp"
+                android:textColor="@color/textColor"/>
+
+            <EditText
+                android:id="@+id/count_down_min"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="25sp"
+                android:hint="3以下の整数"
+                android:inputType="number"/>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/setting_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="決める"
+        android:textSize="30dp"
+        android:background="@color/buttonColor"
+        android:textColor="@color/buttonTextColor"/>
+</LinearLayout>
