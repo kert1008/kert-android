@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="陣の質問数"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textColor="@color/textColor"/>
 
             <EditText
@@ -35,7 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:hint="10以上の整数"
                 android:inputType="number"/>
         </TableRow>
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="最初の味方数"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textColor="@color/textColor" />
 
             <EditText
@@ -55,7 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:hint="5以下の整数"
                 android:inputType="number"/>
         </TableRow>
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="回答時間 (分)"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textColor="@color/textColor"/>
 
             <EditText
@@ -74,7 +74,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:hint="3以下の整数"
                 android:inputType="number"/>
         </TableRow>
@@ -85,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="決める"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:background="@color/buttonColor"
         android:textColor="@color/buttonTextColor"/>
 </LinearLayout>

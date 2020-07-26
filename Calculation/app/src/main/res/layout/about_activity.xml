@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="25dp"
-            android:text="戦国の諸大名を算数で降伏させ、天下統一の夢を実現しよう！"
+            android:text="戦国の英傑を算数で降伏させ、天下統一の夢を実現しよう！"
             android:textColor="@color/textColor"
             android:textSize="30sp" />
 
