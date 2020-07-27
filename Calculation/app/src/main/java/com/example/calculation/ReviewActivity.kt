@@ -40,7 +40,9 @@ class ReviewActivity : BaseActivity() {
         review_button.setOnClickListener {
             if (stepResult == "OK") {
                 intent = Intent(this, EndActivity::class.java)
-                if (judgeResult(reviewList.size)) {
+
+                val qNum = getCalSetting(db)[0]
+                if (judgeResult(reviewList.size, qNum)) {
                     intent.putExtra("FINAL_RESULT", "OK")
                 } else {
                     intent.putExtra("FINAL_RESULT", "NG")
@@ -55,8 +57,8 @@ class ReviewActivity : BaseActivity() {
         }
     }
 
-    private fun judgeResult(num: Int): Boolean {
-        if (num > 3) {
+    private fun judgeResult(wrongNum: Int, qNum: Int): Boolean {
+        if (wrongNum > qNum / 3) {
             return false
         }
         if ((1..100).shuffled().first() % 2 == 0) {

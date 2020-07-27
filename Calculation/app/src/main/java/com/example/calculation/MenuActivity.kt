@@ -3,6 +3,8 @@ package com.example.calculation
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.menu_activity.*
 
 class MenuActivity : BaseActivity() {
@@ -37,12 +39,27 @@ class MenuActivity : BaseActivity() {
         Log.d("MenuActivityTag", "initMenu getCurrentCharacter: $character")
 
         if (character == -1) {
-            //TODO:初期化
+            AlertDialog.Builder(this)
+                .setTitle("天下統一した！")
+                .setMessage("データを消去してやり直しますか？\nデータを消去せず自由挑戦にしますか？")
+                .setPositiveButton("最初からやり直す") { dialog, which ->
+                    Toast.makeText(this, "最初からやり直す", Toast.LENGTH_SHORT).show()
+                    removeAllProgress(db)
+                    character = getCurrentCharacterNo(db)
+                    menu_img.setImageResource(StepCharacter.getCharacter(character)?.get(1) as Int)
+                    menu_text.text = (StepCharacter.getCharacter(character)?.get(0).toString()) + "の陣"
+                }
+                .setNegativeButton("自由挑戦") { dialog, which ->
+                    Toast.makeText(this, "自由挑戦", Toast.LENGTH_SHORT).show()
+                    character = (1..45).shuffled().first()
+                    menu_img.setImageResource(StepCharacter.getCharacter(character)?.get(1) as Int)
+                    menu_text.text = (StepCharacter.getCharacter(character)?.get(0).toString()) + "の陣"
+                }
+                .show()
+        } else {
+            menu_img.setImageResource(StepCharacter.getCharacter(character)?.get(1) as Int)
+            menu_text.text = (StepCharacter.getCharacter(character)?.get(0).toString()) + "の陣"
         }
-
-        menu_img.setImageResource(StepCharacter.getCharacter(character)?.get(1) as Int)
-        menu_text.text = (StepCharacter.getCharacter(character)?.get(0).toString()) + "の陣"
-
         return character
     }
 }

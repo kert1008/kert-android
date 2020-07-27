@@ -84,6 +84,10 @@ fun updateCurrentProgress(db: SQLiteDatabase, result:Int, current: Int) {
     db.update("cal_progress", values, "character_no = ?", arrayOf(current.toString()))
 }
 
+fun removeAllProgress(db: SQLiteDatabase) {
+    db.delete("cal_progress", null, null)
+}
+
 fun addWrongExpForReview(db: SQLiteDatabase, textExp: String, expResult: Int) {
     val values = ContentValues().apply {
         put("text_exp", textExp)

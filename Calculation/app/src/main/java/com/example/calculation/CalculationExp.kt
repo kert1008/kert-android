@@ -1,12 +1,12 @@
 package com.example.calculation
 
-class CalculationExp {
+class CalculationExp() {
     var finalExpResult = 0
     var finalExpression = ""
 
     private var layerNum: Int = 2
 
-    constructor() {
+    init {
         generateExp(layerNum)
     }
 
@@ -17,8 +17,8 @@ class CalculationExp {
             layer = generateLayer(layer)
         }
 
-        finalExpression = layer.get(1).toString()
-        finalExpResult = layer.get(2) as Int
+        finalExpression = layer[1].toString()
+        finalExpResult = layer[2] as Int
     }
 
     private fun generateLayer(exLayer: List<Any>) : List<Any> {
@@ -32,7 +32,7 @@ class CalculationExp {
             exLayerResult = exLayer[2] as Int
         }
 
-        var symbol: Int
+        val symbol: Int
 
         if (exLayerResult > 999) {
             symbol = (1..3).shuffled().first()
@@ -65,8 +65,8 @@ class CalculationExp {
 
         when (symbol) {
             1 -> {
-                firstInt = (1..9999).shuffled().first()
-                secondInt = (1..9999).shuffled().first()
+                firstInt = (10..9999).shuffled().first()
+                secondInt = (10..9999).shuffled().first()
                 firstExp = firstInt.toString()
                 secondExp = secondInt.toString()
 
@@ -98,8 +98,8 @@ class CalculationExp {
                         firstExp = firstInt.toString()
                     }
                 } else {
-                    firstInt = (1..9999).shuffled().first()
-                    secondInt = (1 until firstInt).shuffled().first()
+                    firstInt = (10..9999).shuffled().first()
+                    secondInt = (2 until firstInt).shuffled().first()
                     firstExp = firstInt.toString()
                     secondExp = secondInt.toString()
                 }
@@ -109,8 +109,8 @@ class CalculationExp {
             }
 
             3 -> {
-                firstInt = (1..99).shuffled().first()
-                secondInt = (1..99).shuffled().first()
+                firstInt = (10..99).shuffled().first()
+                secondInt = (10..99).shuffled().first()
                 firstExp = firstInt.toString()
                 secondExp = secondInt.toString()
 
@@ -133,10 +133,10 @@ class CalculationExp {
                     secondInt = exLayerResult
                     secondExp = exLayerExp
                 } else {
-                    secondInt = (1..99).shuffled().first()
+                    secondInt = (10..99).shuffled().first()
                     secondExp = secondInt.toString()
                 }
-                firstInt = (1..99).shuffled().first() * secondInt
+                firstInt = (10..99).shuffled().first() * secondInt
                 firstExp = firstInt.toString()
 
                 expression = "$firstExp÷$secondExp"
