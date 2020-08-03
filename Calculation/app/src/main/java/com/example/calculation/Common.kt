@@ -3,7 +3,7 @@ package com.example.calculation
 import android.database.sqlite.SQLiteDatabase
 
 fun getCurrentCharacterNo(db: SQLiteDatabase): Int {
-    val CHARACTER_NUM = 45
+    val CHARACTER_NUM = 3
     var currentCharacter = findCurrentCharacter(db)
 
     if (currentCharacter == 0) {

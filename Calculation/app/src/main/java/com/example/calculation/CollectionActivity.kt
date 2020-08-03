@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.collection_activity.*
 
 
 class CollectionActivity : AppCompatActivity() {
-    private val CHARACTER_NUM = 45
+    private val CHARACTER_NUM = 3
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.collection_activity)
