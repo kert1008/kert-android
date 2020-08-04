@@ -1,11 +1,11 @@
-[MyQRScanner]
+[MyQRScanner]  
 journeyapps package (Zxing inside)
 
-[MyTimer]
+[MyTimer]  
 Broadcast + vibration effect
 
-[Slider]
+[Slider]  
 Fragment + journeyapps
 
-[Calculation]
+[Calculation]  
 horizontalscrollview(gallery) + Sqlite
