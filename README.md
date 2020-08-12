@@ -9,3 +9,6 @@ Fragment + journeyapps
 
 [Calculation]  
 horizontalscrollview(gallery) + Sqlite
+
+[RetrofitTest]
+Retrofit + Moshi + OKHttp + Dagger
