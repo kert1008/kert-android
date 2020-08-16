@@ -13,5 +13,5 @@ horizontalscrollview(gallery) + Sqlite
 [RetrofitTest]  
 Retrofit + Moshi + OKHttp + Dagger
 
-[DataBindObserver]
+[DataBindObserver]  
 LiveData + DataBind + Observe
