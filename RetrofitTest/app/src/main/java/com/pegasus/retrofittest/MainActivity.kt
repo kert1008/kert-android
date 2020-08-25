@@ -4,13 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
-    @Inject lateinit var userRepository: UserRepository
+    @Inject
+    lateinit var userRepository: UserRepository
 
     private val component = DaggerMainActivityComponent
         .builder()
@@ -23,17 +22,17 @@ class MainActivity : AppCompatActivity() {
 
         component.inject(this)
 
-        runBlocking {
-            val job = async(Dispatchers.Default) {
-                getUserInfo()
-            }
+        val job = GlobalScope.async(Dispatchers.Default) {
+            getUserInfo()
+        }
+        GlobalScope.launch(Dispatchers.Main) {
             job.await()
         }
     }
 
     private fun getUserInfo() {
         val response = userRepository.getUser()
-        Log.d("ActivityUserAPITag",response.body().toString())
+        Log.d("ActivityUserAPITag", response.body().toString())
 
         val user = response.body() as User
 
