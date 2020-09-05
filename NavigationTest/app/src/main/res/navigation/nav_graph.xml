@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.pegasus.navigationtest.FirstFragment"
+        android:label="First1 Fragment"
+        tools:layout="@layout/first_fragment" />
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.pegasus.navigationtest.SecondFragment"
+        android:label="Second2 Fragment"
+        tools:layout="@layout/second_fragment" />
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.pegasus.navigationtest.ThirdFragment"
+        android:label="Third3 Fragment"
+        tools:layout="@layout/third_fragment" />
+
+</navigation>
